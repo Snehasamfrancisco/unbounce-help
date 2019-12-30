@@ -1,0 +1,26 @@
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"> </script>
+ <script type="text/javascript">
+$(document).ready(function(){
+$('#lp-pom-form-125').click(function() {
+$(".error").hide();
+var hasError = false;
+var emailReg = /^(()?\d{3}())?(-|\s)?\d{3}(-|\s)?\d{4}$/;
+var emailblockReg = /^([\w-.]+@(?!gmail.com)(?!yahoo.com)(?!hotmail.com)(?!aol.com)([\w-]+.)+[\w-]{2,4})?$/;
+
+var emailaddressVal = $("#email").val();
+if(emailaddressVal == '') {
+$("#email").after('<span class="error"> Please enter your email address.</span>');
+hasError = true;
+} else if(!emailblockReg.test(emailaddressVal)){
+$("#email").after('<span class="error"> Enter your business email address.</span>');
+hasError = true;
+}
+
+if(hasError == true){ return false; }
+else{
+$("#email").after('<span class="error"></span>');
+return;
+}
+});
+});
+</script>
